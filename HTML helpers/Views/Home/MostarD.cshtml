@@ -1,0 +1,26 @@
+﻿@model HTML_helpers.Models.Datos
+
+@{
+    ViewBag.Title = "Informacion";
+}
+
+<h2>MostarD</h2>
+
+<br />
+<div class="col-lg-12 col-sm-12 col-md-12">
+    <div class="card">
+        <div class="card-body">
+            
+
+            <h1 class="text-dark">Aqui estan sus datos @Model.Nombre</h1>
+            <h6 class="text-dark">Numero Nacional de Identidad: @Model.Cedula</h6>
+            <h6 class="text-dark">Nombre: @Model.Nombre</h6>
+            <h6 class="text-dark">Apellido: @Model.Apellido</h6>
+            <h6 class="text-dark"> Edad: @Model.Edad</h6>
+            <h6 class="text-dark">Correo Electronico: @Model.Correo</h6>
+            <h6 class="text-dark">Genero: @Model.Genero</h6>
+            <h6 class="text-dark">Estado:  @Model.EstadoCivil</h6>
+            
+        </div>
+    </div>
+</div>

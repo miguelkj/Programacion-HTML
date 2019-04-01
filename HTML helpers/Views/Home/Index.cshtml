@@ -1,0 +1,36 @@
+﻿@model  HTML_helpers.Models.Datos
+
+<meta name="viewport" content="width=device-width" />
+
+@using (@Html.BeginForm("MostarD", "Home", FormMethod.Post))
+{
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<h2>Ingrese su informacion</h2>
+    <tr><td> @Html.LabelFor(m => Model.Cedula) </td><td> @Html.TextBoxFor(m => Model.Cedula) @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })</td></tr> <br />
+
+
+    <tr><td> @Html.LabelFor(m => Model.Nombre) </td><td> @Html.TextBoxFor(m => Model.Nombre) @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })</td></tr><br />
+
+    @Html.ValidationMessageFor(m => m.Nombre)
+
+    <tr><td> @Html.LabelFor(m => Model.Apellido) </td><td> @Html.TextBoxFor(m => Model.Apellido) @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })</td></tr><br />
+
+    <tr><td> @Html.LabelFor(m => Model.Edad) </td><td> @Html.TextBoxFor(m => Model.Edad) </td></tr><br />
+
+    <tr><td> @Html.LabelFor(m => Model.Telefono) </td><td> @Html.TextBoxFor(m => Model.Telefono) </td></tr><br />
+
+    <tr><td> @Html.LabelFor(m => Model.Correo) </td><td> @Html.TextBoxFor(m => Model.Correo) @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })</td></tr><br />
+
+    <tr><td> @Html.LabelFor(m => Model.Genero) </td><td> @Html.DropDownList("Genero", new List<SelectListItem> { new SelectListItem { Text = "Hombre", Value = "Hombre" }, new SelectListItem { Text = "Mujer", Value = "Mujer" } }) </td></tr><br />
+
+    <tr><td> @Html.LabelFor(m => Model.EstadoCivil) </td><td>Casado: @Html.RadioButtonFor(m => m.EstadoCivil, "Casado", new { @checked = "checked" })   Soltero: @Html.RadioButtonFor(m => m.EstadoCivil, "Soltero", true)   Viudo: @Html.RadioButtonFor(m => m.EstadoCivil, "Viudo", true)   Union libre: @Html.RadioButtonFor(m => m.EstadoCivil, "Union libre", true) </td></tr><br />
+
+    <tr><td> @Html.LabelFor(m => Model.Hobbys) </td><td>leer  @Html.CheckBox("Hobbys[]", false, new { @value = "leer" }) Ejercicio @Html.CheckBox("Hobbys[]", false, new { @value = "Ejercicio" }) Video juegos @Html.CheckBox("Hobbys[]", false, new { @value = "Video juegos" }) Musica @Html.CheckBox("Hobbys[]", false, new { @value = "Musica" }) </td></tr><br />
+
+    @Html.ValidationSummary()
+
+    <tr><td></td><td><input type="submit" value="Submit" /></td></tr>
+
+    Html.EndForm();
+    }
